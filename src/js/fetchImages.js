@@ -1,5 +1,6 @@
 import axios from 'axios';
 // Збереження ключа API в окремому файлі змінних
+import Notiflix from 'notiflix';
 import { KEY } from './api-key.js';
 
 // Перевірка помилок під час виконання запиту до серверу

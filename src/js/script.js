@@ -95,18 +95,19 @@ function onSearchForm(e) {
 
 function onloadMore() {
   page += 1;
-  // simpleLightBox.refresh();
 
   fetchImages(query, page, perPage)
     .then(data => {
       renderGallery(data.hits);
 
       const totalPages = Math.ceil(data.totalHits / perPage);
-
-      if (page > totalPages) {
+      console.log(totalPages);
+      console.log(page);
+      if (page >= totalPages) {
         Notiflix.Notify.failure(
           "We're sorry, but you've reached the end of search results.",
         );
+        loadMoreBtn.classList.add('is-hidden')
       }
     })
     .catch(error => console.log(error));
